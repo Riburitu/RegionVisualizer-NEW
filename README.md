@@ -36,7 +36,7 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 
 – **/playmusic (player) getvolume** - Volumen del jugador (falta comprobar si funciona o no)
 
-– **/playmusic (player) config** - Entra en las opciones del control de volumen (sera descartado a futuro por obvias razones)
+– **/playmusic (player) config** - Entra a las opciones del control de volumen (sera descartado a futuro por obvias razones)
 
 ## Agradecimientos
 **Liray** – Autor del mod "Dynamic Ambience and Music" y creador del sprite animado utilizado en este mod (item X).
