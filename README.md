@@ -30,12 +30,14 @@ Yo deseaba tener un mod que manejase regiones, tenga opción de música, añadir
 La idea original de música dinámica por regiones me inspiró a reimplementarla en la versión 1.20.1 con mi propio enfoque y desde cero.
 
 **Página en CurseForge:** [Dynamic Ambience and Music](https://www.curseforge.com/minecraft/mc-mods/dynamic-ambience-and-music)
+
 **GitHub:** [liray-dev/Dynamic-Ambience-And-Music](https://github.com/liray-dev/Dynamic-Ambience-And-Music/tree/master)
 
 **Arisitva Studio** - Estudio de desarrollo de proyectos tipo servidor en Minecraft, Terraria y de diferentes tipos de juegos incluidos.
 Gracias al equipo del desarrollo me motivaron a terminar este mod hasta el final, cualquier error o bugs me reportaron ellos, el cual perfecciono este mod casi al 100%. 
 
 **Discord:** [Aristiva Studio](https://discord.gg/u9pq3raUXe)
+
 **Twitter:** [Aristiva Studio](https://x.com/aristivastudio)
 
 ## LICENCIA
