@@ -12,19 +12,30 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 
 ### /region
 – **/region add (add) (filemusic) (loop-> true/false) (fade-> true/false)** - Defines una región con música, con sus propiedades tipo fade y loop opcional.
+
 – **/region remove (nameregion)** - Elimina una región del mundo añadida.
+
 – **/region list** - Muestra las regiones creadas en el mundo.
+
 – **/region tp (region)** - Teletransportación hacia X región en el mundo.
+
 – **/region cancel** - Se cancela la selección hecha con el item Region Selector.
+
 – **/region info (name)** - Muestra información de X región del mundo.
+
 – **/region here** - Muestra en qué región estás actualmente en la posición del mundo.
 
 ### /playmusic
 – **/playmusic (player) (volume -> 1.0 to 0.0)** - Cambia el volumen de X jugador (falta comprobar si funciona o no)
+
 – **/playmusic (player) stop** -> Para la música actual activada.
+
 – **/playmusic (player) (filemusic.wav)** - Reproduce la música almacenada en .minecraft/music
+
 – **/playmusic (player) list** - Envía la lista de música almacenada al jugador.
+
 – **/playmusic (player) getvolume** - Volumen del jugador (falta comprobar si funciona o no)
+
 – **/playmusic (player) config** - Entra en las opciones del control de volumen (sera descartado a futuro por obvias razones)
 
 ## Agradecimientos
