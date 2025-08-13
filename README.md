@@ -39,7 +39,7 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 – **/playmusic (player) config** - Entra a las opciones del control de volumen (sera descartado a futuro por obvias razones)
 
 ## Agradecimientos
-**Liray** – Autor del mod "Dynamic Ambience and Music" y creador del sprite animado utilizado en este mod (item X).
+**Liray** – Autor del mod "Dynamic Ambience and Music" y creador del sprite animado utilizado en este mod (Region Selector).
 La idea original de música dinámica por regiones me inspiró a reimplementarla en la versión 1.20.1 con mi propio enfoque y desde cero.
 
 **Página en CurseForge:** [Dynamic Ambience and Music](https://www.curseforge.com/minecraft/mc-mods/dynamic-ambience-and-music)
