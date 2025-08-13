@@ -1,5 +1,5 @@
 # RegionVisualizer NEW
-Nueva versión de mi mod anterior, una versión super mejorada a la anterior, utilizando regiones con músicas desde tu .minecraft/music, puedes crear regiones, añadirles su música, loop y transición con fade in/fade-out en (true/false). Todo esto está hecho sin el motor de sonido de Miencraft, el cual es OpenAL LWJGL, en este caso, está utilizando el paquete de Java Sound Sampled API, evitando romper el sistema de sonidos de Minecraft.
+Nueva versión de mi mod anterior, una versión super mejorada a la anterior, utilizando regiones con músicas desde tu .minecraft/music, puedes crear regiones, añadirles su música, loop y transición con fade in/fade-out en (true/false). Todo esto está hecho sin el motor de sonido de Minecraft, el cual es OpenAL LWJGL. En este caso, se utiliza el paquete de Java Sound Sampled API, así evitando romper el sistema de sonidos de Minecraft.
 
 Incluye un control de volumen aparte desde Opciones --> Música y sonidos --> Configuración de RegionVisualizer --> Volumen del Mod: 100%.
 
