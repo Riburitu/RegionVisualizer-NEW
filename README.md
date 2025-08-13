@@ -37,7 +37,7 @@ Gracias al equipo del desarrollo me motivaron a terminar este mod hasta el final
 
 Discord: [Aristiva Studio](https://discord.gg/u9pq3raUXe)
 Twitter: [Aristiva Studio](https://x.com/aristivastudio)
-º
+
 ## LICENCIA
 Todo esto esta reservado por la propiedad de Aristiva Studio y por Riburitu.
 
