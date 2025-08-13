@@ -9,7 +9,7 @@ Yo deseaba tener un mod que manejase regiones, tenga opción de música, añadir
 ## COMANDOS
 
 ### /region
-/region add (add) (namemusic) (loop-> true/false) (fade-> true/false) - Defines una región con música, con sus propiedades tipo fade y loop opcional.
+/region add (add) (filemusic) (loop-> true/false) (fade-> true/false) - Defines una región con música, con sus propiedades tipo fade y loop opcional.
 /region remove (nameregion) - Elimina una región del mundo añadida.
 /region list - Muestra las regiones creadas en el mundo.
 /region tp (region) - Teletransportación hacia X región en el mundo.
@@ -20,7 +20,7 @@ Yo deseaba tener un mod que manejase regiones, tenga opción de música, añadir
 ### /playmusic
 /playmusic (player) (volume -> 1.0 to 0.0) - Cambia el volumen de X jugador (falta comprobar si funciona o no)
 /playmusic (player) stop -> Para la música actual activada.
-/playmusic (player) (namemusic) - Reproduce la música almacenada en .minecraft/music
+/playmusic (player) (filemusic.wav) - Reproduce la música almacenada en .minecraft/music
 /playmusic (player) list - Envía la lista de música almacenada al jugador.
 /playmusic (player) getvolume - Volumen del jugador (falta comprobar si funciona o no)
 /playmusic (player) config - Entra en las opciones del control de volumen (sera descartado a futuro por obvias razones)
@@ -29,14 +29,14 @@ Yo deseaba tener un mod que manejase regiones, tenga opción de música, añadir
 **Liray** – Autor del mod "Dynamic Ambience and Music" y creador del sprite animado utilizado en este mod (item X).
 La idea original de música dinámica por regiones me inspiró a reimplementarla en la versión 1.20.1 con mi propio enfoque y desde cero.
 
-Página en CurseForge: [Dynamic Ambience and Music](https://www.curseforge.com/minecraft/mc-mods/dynamic-ambience-and-music)
-GitHub: [liray-dev/Dynamic-Ambience-And-Music](https://github.com/liray-dev/Dynamic-Ambience-And-Music/tree/master)
+**Página en CurseForge:** [Dynamic Ambience and Music](https://www.curseforge.com/minecraft/mc-mods/dynamic-ambience-and-music)
+**GitHub:** [liray-dev/Dynamic-Ambience-And-Music](https://github.com/liray-dev/Dynamic-Ambience-And-Music/tree/master)
 
 **Arisitva Studio** - Estudio de desarrollo de proyectos tipo servidor en Minecraft, Terraria y de diferentes tipos de juegos incluidos.
 Gracias al equipo del desarrollo me motivaron a terminar este mod hasta el final, cualquier error o bugs me reportaron ellos, el cual perfecciono este mod casi al 100%. 
 
-Discord: [Aristiva Studio](https://discord.gg/u9pq3raUXe)
-Twitter: [Aristiva Studio](https://x.com/aristivastudio)
+**Discord:** [Aristiva Studio](https://discord.gg/u9pq3raUXe)
+**Twitter:** [Aristiva Studio](https://x.com/aristivastudio)
 
 ## LICENCIA
 Todo esto esta reservado por la propiedad de Aristiva Studio y por Riburitu.
