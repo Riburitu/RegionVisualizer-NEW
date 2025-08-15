@@ -26,7 +26,7 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 – **/region here** - Muestra en qué región estás actualmente en la posición del mundo.
 
 ### /playmusic
-– **/playmusic (player) (volume -> 1.0 to 0.0)** - Cambia el volumen de X jugador (falta comprobar si funciona o no)
+– **/playmusic (player) (volume -> 1.0 to 0.0)** - Cambia el volumen de X jugador.
 
 – **/playmusic (player) stop** -> Para la música actual activada.
 
@@ -34,7 +34,7 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 
 – **/playmusic (player) list** - Envía la lista de música almacenada al jugador.
 
-– **/playmusic (player) getvolume** - Volumen del jugador (falta comprobar si funciona o no)
+– **/playmusic (player) getvolume** - Volumen del jugador, la envía hacia el jugador.
 
 – **/playmusic (player) config** - Entra a las opciones del control de volumen (sera descartado a futuro por obvias razones)
 
