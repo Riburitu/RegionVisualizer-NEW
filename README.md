@@ -40,11 +40,11 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 
 – **/regedit music (region) (filemusic)** -> Cambia la música indicada anteriormente en la región.
 
-- **/regedit pos (region)** -> Permite reposicionar la región (cualquier sugerencia avisen, falta pulir esta parte).
+– **/regedit pos (region)** -> Permite reposicionar la región (cualquier sugerencia avisen, falta pulir esta parte).
 
-- **/regedit regname (region) (newRegionTag)** -> Cambia el nombre de X región.
+– **/regedit regname (region) (newRegionTag)** -> Cambia el nombre de X región.
 
-- **/regedit view (region)** -> Permite visualizar X región (solo se permite uno a la vez).
+– **/regedit view (region)** -> Permite visualizar X región (solo se permite uno a la vez).
 
 
 ## ACTUALIZACIONES
