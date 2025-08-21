@@ -53,27 +53,42 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 2. Nuevos comandos añadidos -> /playmusic
 3. Nuevos subcomandos añadidos -> /region
 4. Configuración de música añadida en "Opciones.../Música y sonido.../Configuración de RegionVisualizer"
-  - Control de volumen añadido
+
+  – Control de volumen añadido
+
 5. Bugs de regiones solucionados para el multijugador.
  
 ### 1.1.0
 1. Nuevos comandos añadidos -> /regedit
 2. Mejoras entre la compatibilidad de formatos de audio -> .OGG añadido
 3. Sistema de cache añadido -> Todo el cache se almacena en .minecraft/music/cache, puedes eliminarlo sin problema alguno.
-  - Capacidad de Disco -> 0/100 archivos .ogg
-  - Capacidad de RAM -> 0/4 archivos .ogg
-  - Filtrado de música: .WAV
+
+  – Capacidad de Disco -> 0/100 archivos .ogg
+
+  – Capacidad de RAM -> 0/4 archivos .ogg
+
+  – Filtrado de música: .WAV
+
 5. Bugs solucionados (bug visual, bug ), mejoras añadidas y comandos ordenados -> "/playmusic" ordenado, "/region" ordenado.
 6. Permitir visualizar X región solo al sostener la varita Region Selector.
 7. Mejora de configuración -> Se ubica en: Opciones.../Música y sonido.../Configuración de RegionVisualizer:
-  - Reproducción de música añadida.
-  - Control de volumen mejorado.
-  - Control de Fade mejorado.
-  - Control del sonido verdadero añadido.
-  - Control del comienzo de Fade añadido (45% por defecto).
-  - Debug intenso.
-  - Refresh de música añadido.
-  - (En mantenimiento el abierto automático de la carpeta "music" del botón Info...).
+
+  – Reproducción de música añadida.
+
+  – Control de volumen mejorado.
+
+  – Control de Fade mejorado.
+
+  – Control del sonido verdadero añadido.
+
+  – Control del comienzo de Fade añadido (45% por defecto).
+
+  – Debug intenso.
+
+  – Refresh de música añadido.
+
+  – (En mantenimiento el abierto automático de la carpeta "music" del botón Info...).
+
 8. Mensajes DEBUG en el chat eliminados -> Por una queja de molestia en el chat a la pantalla.
 9. Mensajes mejorados por "sendOverlayMessage" añadido.
 10. Comandos mejorados con más información.
@@ -86,8 +101,8 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 4. Mejoras en el Fade.
 5. Mejoras en los textos con Emoji.
 6. Eliminar DEBUGs (consola) innecesarios.
-7. Mejorar la visualización de la región con una capa transparente con color verde o rojo según esté el jugador dentro o fuera.
-8. Permitir al cliente desactivar las opciones en "Opciones.../Música y sonido.../Configuración de RegionVisualizer" solo a comando (PARA SERVIDORES DEDICADOS).
+7. Mejorar la visualización de la región con una capa transparente con color verde o rojo según el jugador esté dentro o fuera.
+8. Permitir al operador desactivar las opciones en cliente desde: "Opciones.../Música y sonido.../Configuración de RegionVisualizer" solo a comando -> /configmusic (PARA SERVIDORES DEDICADOS).
 
 
 ## Agradecimientos
