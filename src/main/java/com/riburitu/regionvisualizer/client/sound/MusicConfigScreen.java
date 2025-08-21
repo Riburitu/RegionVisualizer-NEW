@@ -74,7 +74,6 @@ public class MusicConfigScreen extends Screen {
         int listHeight = this.height - 100;
         int listY = 40;
         
-        // Lista de archivos mejorada - CORRECCIÓN CRÍTICA
         musicFileList = new MusicFileList(
             this.minecraft, 
             PANEL_WIDTH, 
@@ -85,10 +84,8 @@ public class MusicConfigScreen extends Screen {
         );
         musicFileList.setX(x);
         
-        // CORRECCIÓN PRINCIPAL: Usar addRenderableWidget en lugar de addWidget
         addRenderableWidget(musicFileList);
         
-        // CORRECCIÓN: Botones de control de la lista - Mejor posicionamiento
         int buttonY = this.height - 55; // Más arriba para que no se salgan
         int buttonWidth = (PANEL_WIDTH - 10) / 3; // 3 botones con espaciado
         
@@ -139,7 +136,6 @@ public class MusicConfigScreen extends Screen {
     }
 
     private void setAdvancedWidgetVisible(net.minecraft.client.gui.components.AbstractWidget widget, boolean visible) {
-        // En lugar de acceder al campo visible directamente, usar el método setVisible si existe
         try {
             // Intentar usar setVisible si está disponible
             widget.getClass().getMethod("setVisible", boolean.class).invoke(widget, visible);
@@ -245,9 +241,7 @@ public class MusicConfigScreen extends Screen {
         setupAdvancedControls(centerX, y);
     }
 
-    private void setupAdvancedControls(int centerX, int y) {
-        // CORRECCIÓN: Inicializar controles avanzados pero ocultos por defecto
-        
+    private void setupAdvancedControls(int centerX, int y) {        
         // Slider de volumen máximo
         maxVolumeSlider = SliderButton.forRange(
             centerX - SLIDER_WIDTH / 2,
@@ -259,7 +253,6 @@ public class MusicConfigScreen extends Screen {
             0.1, 1.0,
             (slider, value) -> MusicManager.setMaxModVolume((float) value)
         );
-        // CORRECCIÓN: Usar setters públicos en lugar de campos directos
         setAdvancedWidgetVisible(maxVolumeSlider, false);
         addRenderableWidget(maxVolumeSlider);
         y += BUTTON_HEIGHT + SPACING;
@@ -373,7 +366,6 @@ public class MusicConfigScreen extends Screen {
     private void toggleAdvancedMode() {
         showAdvanced = !showAdvanced;
         
-        // CORRECCIÓN: Actualizar visibilidad de controles avanzados usando el método helper
         if (maxVolumeSlider != null) {
             setAdvancedWidgetVisible(maxVolumeSlider, showAdvanced);
         }
@@ -532,18 +524,15 @@ public class MusicConfigScreen extends Screen {
                         long size = Files.size(file);
                         String extension = getFileExtension(filename).toUpperCase();
                         String sizeStr = formatFileSize(size);
-                        
-                        // Verificar compatibilidad usando testFile de MusicManager
+                       
                         boolean supported = false;
                         String supportedInfo = "";
                         
                         try {
-                            // MÉTODO PRINCIPAL: Usar MusicManager.testFile() que ya existe
                             supported = MusicManager.testFile(filename);
                             supportedInfo = supported ? "✅" : "❌";
                             System.out.println("[MusicConfig] " + filename + " compatible: " + supported);
                         } catch (Exception e) {
-                            // FALLBACK: Si falla testFile, usar verificación directa
                             System.err.println("[MusicConfig] Error con MusicManager.testFile(), probando directamente: " + e.getMessage());
                             try (AudioInputStream testStream = AudioSystem.getAudioInputStream(file.toFile())) {
                                 supported = testStream != null;
@@ -579,10 +568,8 @@ public class MusicConfigScreen extends Screen {
                 System.out.println("[MusicConfig] ✅ Carga completada: " + audioFiles.size() + " archivos añadidos a la lista");
             }
             
-            // DEBUG FINAL - CORREGIDO para evitar acceso a campos privados
             System.out.println("[MusicConfig] === ESTADO FINAL DE LA LISTA ===");
             System.out.println("[MusicConfig] Total entries en musicFileList: " + musicFileList.children().size());
-            // CORRECCIÓN: Solo usar información disponible públicamente
             System.out.println("[MusicConfig] Lista inicializada correctamente");
             
         } catch (Exception e) {
@@ -680,7 +667,6 @@ public class MusicConfigScreen extends Screen {
         );
         musicFileList.setX(x);
         
-        // CORRECCIÓN PRINCIPAL: Usar addRenderableWidget
         this.addRenderableWidget(musicFileList);
         
         System.out.println("[MusicConfig] Lista de música recreada y añadida como renderableWidget");
@@ -849,7 +835,6 @@ public class MusicConfigScreen extends Screen {
         }
         
         public void setX(int x) {
-            // CORRECCIÓN: Usar métodos públicos disponibles en lugar de campos privados
             try {
                 // Intentar usar setters si están disponibles
                 this.getClass().getMethod("setX", int.class).invoke(this, x);
@@ -885,7 +870,7 @@ public class MusicConfigScreen extends Screen {
 
         @Override
         protected int getScrollbarPosition() {
-            // CORRECCIÓN: Calcular posición del scrollbar sin acceder a campos privados
+            // Calcula posición del scrollbar sin acceder a campos privados
             return this.getRowLeft() + this.getRowWidth() + 6;
         }
 

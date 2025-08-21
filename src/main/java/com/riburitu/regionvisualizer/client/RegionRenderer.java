@@ -45,7 +45,7 @@ public class RegionRenderer {
         Player player = Minecraft.getInstance().player;
         if (player == null || !isHoldingRegionSelector(player)) return;
 
-        // Render selection if active
+        // Si el render visual está activo...
         RegionSelection sel = RegionSelectorItem.getSelection();
         if (sel != null && sel.isComplete()) {
             BlockPos p1 = sel.pos1, p2 = sel.pos2;
@@ -82,7 +82,7 @@ public class RegionRenderer {
             renderRegionOutline(event, minX, minY, minZ, maxX, maxY, maxZ, inside);
         }
 
-        // Render viewed region if active
+        // Si el render visual está activo...
         if (viewedRegion != null) {
             BlockPos p1 = viewedRegion.getPos1(), p2 = viewedRegion.getPos2();
             double minX = Math.min(p1.getX(), p2.getX());
@@ -125,7 +125,7 @@ public class RegionRenderer {
             float b = 0f;
             float a = 0.8f;               
 
-            // Dibujar las 12 líneas del cubo
+            // Dibujar las 12 líneas del cuboide
             // Base inferior (Y = minY)
             addLine(buf, matrix, minX, minY, minZ, maxX, minY, minZ, r, g, b, a);
             addLine(buf, matrix, maxX, minY, minZ, maxX, minY, maxZ, r, g, b, a);

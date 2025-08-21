@@ -15,19 +15,17 @@ public class SliderButton extends AbstractSliderButton {
     private final String displayFormat;
     private boolean isDragging = false;
     private long lastUpdateTime = 0;
-    private static final long UPDATE_THROTTLE = 50; // 50ms throttle
+    private static final long UPDATE_THROTTLE = 50; 
 
     @FunctionalInterface
     public interface OnValueChange {
         void onChange(SliderButton slider, double value);
     }
 
-    // Constructor simple (compatibilidad)
     public SliderButton(int x, int y, int width, int height, Component message, double value, OnValueChange onValueChange) {
         this(x, y, width, height, message, value, onValueChange, 0.0f, 1.0f, true, "", "", "default");
     }
 
-    // Constructor completo optimizado
     public SliderButton(int x, int y, int width, int height, Component message, double value, 
                        OnValueChange onValueChange, float minValue, float maxValue, 
                        boolean showPercentage, String prefix, String suffix, String displayFormat) {
@@ -43,7 +41,6 @@ public class SliderButton extends AbstractSliderButton {
         updateMessage();
     }
 
-    // Factory methods optimizados para diferentes tipos
     public static SliderButton forPercentage(int x, int y, int width, int height, String label, 
                                            double value, OnValueChange onValueChange) {
         return new SliderButton(x, y, width, height, 
@@ -68,7 +65,6 @@ public class SliderButton extends AbstractSliderButton {
             value, onValueChange, (float)min, (float)max, false, label + ": ", "", "range");
     }
 
-    // Factory method para decibeles (útil para volumen)
     public static SliderButton forDecibels(int x, int y, int width, int height, String label,
                                          double value, double minDb, double maxDb, OnValueChange onValueChange) {
         return new SliderButton(x, y, width, height,
@@ -153,7 +149,6 @@ public class SliderButton extends AbstractSliderButton {
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
         if (isDragging) {
             isDragging = false;
-            // Forzar última actualización al soltar
             if (onValueChange != null) {
                 onValueChange.onChange(this, getActualValue());
                 updateMessage();
@@ -162,7 +157,6 @@ public class SliderButton extends AbstractSliderButton {
         return super.mouseReleased(mouseX, mouseY, button);
     }
 
-    // Métodos de utilidad optimizados
     private static double normalizeValue(double value, float minValue, float maxValue) {
         if (minValue == 0.0f && maxValue == 1.0f) {
             return Mth.clamp(value, 0.0, 1.0);
@@ -199,7 +193,6 @@ public class SliderButton extends AbstractSliderButton {
         return onValueChange != null;
     }
 
-    // Método de debug mejorado
     public void debugInfo() {
         System.out.println("[SliderButton] " + prefix.trim() + ":");
         System.out.println("  - Raw Value: " + this.value);
@@ -210,7 +203,6 @@ public class SliderButton extends AbstractSliderButton {
         System.out.println("  - Dragging: " + isDragging);
     }
 
-    // Métodos adicionales para mejor UX
     public void setEnabled(boolean enabled) {
         this.active = enabled;
     }
@@ -275,7 +267,6 @@ public class SliderButton extends AbstractSliderButton {
 
     public static SliderButton forAudioGain(int x, int y, int width, int height, String label,
                                            double currentGain, OnValueChange onValueChange) {
-        // Rango típico para ganancia de audio: -40dB a +20dB
         return forDecibels(x, y, width, height, label, currentGain, -40.0, 20.0, onValueChange);
     }
 
@@ -322,7 +313,6 @@ public class SliderButton extends AbstractSliderButton {
         double diff = targetValue - startValue;
         long startTime = System.currentTimeMillis();
         
-        // Crear una animación simple (esto requeriría un sistema de tick en la GUI)
         new Thread(() -> {
             while (System.currentTimeMillis() - startTime < durationMs) {
                 long elapsed = System.currentTimeMillis() - startTime;

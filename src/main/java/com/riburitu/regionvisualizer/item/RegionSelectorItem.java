@@ -142,7 +142,6 @@ public class RegionSelectorItem extends Item {
             NetworkHandler.sendOverlayMessage(serverPlayer, message);
             return InteractionResult.FAIL;
         }
-        // Después del código anterior... Sincronizamos la selección.
         NetworkHandler.sendSyncSelection(serverPlayer, selection.pos1, selection.pos2);
         if (editingRegion == null && selection.isComplete()) {
             // Después de completar selección...

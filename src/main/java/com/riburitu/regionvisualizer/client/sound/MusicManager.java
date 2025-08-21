@@ -143,7 +143,7 @@ public class MusicManager {
                 listAvailableFiles(false);
                 System.out.println("[RegionVisualizer] ⏰ Sistema de música inicializado");
                 
-                // NUEVO: Iniciar precarga automática si estamos en menú principal
+                // Iniciar precarga automática si estamos en menú principal
                 if (Minecraft.getInstance().screen != null && 
                     Minecraft.getInstance().level == null) { // En menú principal
                     System.out.println("[Preload] 🎯 Detectado menú principal, iniciando precarga automática...");
@@ -600,7 +600,7 @@ public class MusicManager {
     public static void onMainMenuOpened() {
         long currentTime = System.currentTimeMillis();
         
-        // Protección anti-spam: solo procesar cada X segundos
+        // Anti-spam: solo procesar cada X segundos
         if (currentTime - lastMainMenuDetection < MAIN_MENU_COOLDOWN) {
             return; // Ignorar llamadas muy frecuentes
         }
@@ -1084,7 +1084,7 @@ public class MusicManager {
             return;
         }
         
-        // NUEVO: Verificar y recrear executor si es necesario
+        // Verificar y recrear executor si es necesario
         if (preloadExecutor.isShutdown() || preloadExecutor.isTerminated()) {
             System.err.println("[Preload] ⚠️ Executor cerrado, no se puede iniciar precarga");
             System.err.println("[Preload] Usa 'PRELOAD_FORCE' o reinicia el sistema para forzar nueva precarga");
@@ -1167,7 +1167,6 @@ public class MusicManager {
                 return;
             }
             
-            // Usar el nuevo método que filtra archivos
             List<Path> audioFiles = collectAudioFiles();
             
             if (audioFiles.isEmpty()) {
@@ -1181,7 +1180,6 @@ public class MusicManager {
             currentPreloadStatus.totalFiles = audioFiles.size();
             System.out.println("[Preload] Encontrados " + audioFiles.size() + " archivos que requieren cache");
             
-            // Resto del método continúa igual...
             for (Path audioFile : audioFiles) {
                 if (!preloadInProgress.get()) {
                     System.out.println("[Preload] Precarga cancelada por el usuario");
@@ -1277,7 +1275,7 @@ public class MusicManager {
         
         System.out.println("[Preload] Procesando: " + filename);
         
-        // OPTIMIZACIÓN: Verificar si ya está en cache de disco
+        // Verificar si ya está en cache de disco
         DiskCachedAudioInfo existingCache = diskCache.get(cacheKey);
         if (existingCache != null && isValidDiskCache(existingCache, audioFile)) {
             System.out.println("[Preload] ⚡ Ya existe en cache: " + filename);
@@ -1511,7 +1509,7 @@ public class MusicManager {
      }
  }
 
- // TODOS LOS DEPRECATED - mantener para compatibilidad
+ // TODOS LOS DEPRECATED - mantenido por compatibilidad
  public static void clearCache() {
      clearAllCaches();
  }
@@ -1548,7 +1546,7 @@ public class MusicManager {
          createCacheReadme();
      }
      
-     // IMPORTANTE: RAM siempre empieza vacía tras reinicio
+     // RAM siempre empieza vacía tras reinicio
      ramCache.clear();
      accessTimes.clear();
      
@@ -1571,9 +1569,6 @@ public class MusicManager {
  // LÓGICA PRINCIPAL DE CACHE
  // ========================================
 
- /**
-  * MODIFICACIÓN NECESARIA: Actualizar getCachedAudioStream para aprovechar precarga
-  */
  private static AudioInputStream getCachedAudioStream(String filename, Path originalPath) throws Exception {
 	    // NUEVO: Verificar si el archivo necesita cache
 	    if (!needsCache(filename)) {
@@ -1813,7 +1808,6 @@ public class MusicManager {
 	    long oldestTime = Long.MAX_VALUE;
 	    String oldestKey = null;
 	    
-	    // PASO 1: Buscar usando accessTimes (más preciso)
 	    for (String key : keySet) {
 	        Long accessTime = accessTimes.get(key);
 	        if (accessTime != null && accessTime < oldestTime) {
@@ -1822,7 +1816,6 @@ public class MusicManager {
 	        }
 	    }
 	    
-	    // PASO 2: Si no se encuentra en accessTimes, usar timestamp del cache como fallback
 	    if (oldestKey == null) {
 	        System.out.println("[Cache] Usando timestamp como fallback para LRU");
 	        oldestTime = Long.MAX_VALUE; // Reset para segunda búsqueda
@@ -2004,7 +1997,7 @@ public class MusicManager {
              System.err.println("[Cache] Error eliminando cache: " + e.getMessage());
          }
          
-         // Actualizar í.ndice
+         // Actualizar índice
          saveDiskCacheIndex();
      }
  }
@@ -2349,7 +2342,6 @@ public class MusicManager {
         }
     }
     private static void handleNormalCommands(String command) {
-        // NUEVO: Verificar primero si es comando de cache
         if (command.toUpperCase().startsWith("CACHE_")) {
             handleCacheCommand(command);
             return;
@@ -2361,7 +2353,6 @@ public class MusicManager {
                 break;
             case "INIT":
                 forceInitialize();
-                // Cambiar esta línea para no mostrar la lista automáticamente
                 listAvailableFiles(false); // Solo inicializa sin mostrar mensajes
                 break;
             case "LIST":
@@ -2371,7 +2362,6 @@ public class MusicManager {
                 logSupportedFormats();
                 sendMessageSync("Revisar la consola para ver los formatos soportados", ChatFormatting.AQUA);
                 break;
-            // Comandos de cache ahora se manejan arriba con handleCacheCommand()
             case "CACHE_STATS":
                 printCacheStats();
                 break;
