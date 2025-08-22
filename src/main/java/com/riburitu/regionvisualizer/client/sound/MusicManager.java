@@ -14,7 +14,6 @@ import net.minecraft.world.level.Level;
 
 // Java Sound API
 import javax.sound.sampled.*;
-
 // Java IO
 import java.io.*;
 
@@ -134,7 +133,7 @@ public class MusicManager {
         synchronized (audioLock) {
             try {
                 setupMusicFolder();
-                debugAudioSystem();
+//              debugAudioSystem();
                 initializeAudioFormats();
                 validateAudioSystem();
                 loadConfig();
@@ -2601,7 +2600,7 @@ public class MusicManager {
     private static void initializeAudioFormats() {
         try {
             AudioFileFormat.Type[] supportedTypes = AudioSystem.getAudioFileTypes();
-            System.out.println("[RegionVisualizer] ðŸŽµ Formatos de audio detectados: " + supportedTypes.length);
+            System.out.println("[RegionVisualizer] ➡️ Formatos de audio detectados: " + supportedTypes.length);
             
             boolean oggSupported = isFormatSupported(".ogg");
             
@@ -2728,80 +2727,80 @@ public class MusicManager {
             System.err.println("[RegionVisualizer] ❌ Error creando archivo de ayuda: " + e.getMessage());
         }
     }
-    
-    // ========================================
-    // SISTEMA DE DEBUG (MENOS IMPORTANTE)
-    // ========================================
-    
-    public static void debugAudioSystem() {
-        System.out.println("[RegionVisualizer] === DEBUG AUDIO SYSTEM ===");
-
-        // Verificar tipos de archivos soportados
-        AudioFileFormat.Type[] types = AudioSystem.getAudioFileTypes();
-        System.out.println("[RegionVisualizer] AudioSystem tipos soportados: " + types.length);
-        for (AudioFileFormat.Type type : types) {
-            System.out.println("[RegionVisualizer]   - " + type.toString() + " (extensión: " + type.getExtension() + ")");
-        }
-
-        // Verificar proveedores de AudioFileReader
-        System.out.println("[RegionVisualizer] === AUDIO FILE READERS ===");
-        List<javax.sound.sampled.spi.AudioFileReader> readersList = new ArrayList<>();
-        ServiceLoader<javax.sound.sampled.spi.AudioFileReader> loader =
-                ServiceLoader.load(javax.sound.sampled.spi.AudioFileReader.class);
-
-        for (javax.sound.sampled.spi.AudioFileReader reader : loader) {
-            readersList.add(reader);
-            System.out.println("[RegionVisualizer]   - " + reader.getClass().getName());
-        }
-        System.out.println("[RegionVisualizer] AudioFileReaders encontrados: " + readersList.size());
-
-        // Verificar clases OGG específicas
-        System.out.println("[RegionVisualizer] === VERIFICACIÓN DE CLASES OGG ===");
-        String[] oggClasses = {
-                "javazoom.spi.vorbis.sampled.file.VorbisAudioFileReader",
-                "com.jcraft.jorbis.VorbisFile",
-                "org.tritonus.share.sampled.file.AudioFileReader",
-                "de.jarnbjo.vorbis.VorbisStream"
-        };
-
-        for (String className : oggClasses) {
-            try {
-                Class.forName(className);
-                System.out.println("[RegionVisualizer] ✅ Clase encontrada: " + className);
-            } catch (ClassNotFoundException e) {
-                System.out.println("[RegionVisualizer] ❌ Clase NO encontrada: " + className);
-            }
-        }
-
-        // Probar archivo OGG específico
-        try {
-            List<Path> oggFiles = Files.list(musicFolder)
-                    .filter(path -> path.toString().toLowerCase().endsWith(".ogg"))
-                    .limit(1)
-                    .collect(Collectors.toList());
-
-            if (!oggFiles.isEmpty()) {
-                Path testFile = oggFiles.get(0);
-                System.out.println("[RegionVisualizer] Probando archivo: " + testFile.getFileName());
-
-                try (AudioInputStream stream = AudioSystem.getAudioInputStream(testFile.toFile())) {
-                    System.out.println("[RegionVisualizer] ✅ Archivo OGG leído exitosamente");
-                    System.out.println("[RegionVisualizer] Formato: " + stream.getFormat());
-//                    sendMessageSync("[RegionVisualizer] ✅ ¡OGG soportado y funcional!", ChatFormatting.GREEN);
-                } catch (UnsupportedAudioFileException e) {
-                    System.err.println("[RegionVisualizer] ❌ Archivo OGG no soportado: " + e.getMessage());
-//                    sendMessageSync("[RegionVisualizer] ❌ OGG no soportado: " + e.getMessage(), ChatFormatting.RED);
-                }
-            } else {
-                System.out.println("[RegionVisualizer] ⚠️ No se encontraron archivos OGG para probar");
-//                sendMessageSync("⚠️ No hay archivos OGG para probar", ChatFormatting.YELLOW);
-            }
-        } catch (Exception e) {
-            System.err.println("[RegionVisualizer] ❌ Error accediendo a archivos OGG: " + e.getMessage());
-        }
-
-        System.out.println("[RegionVisualizer] === FIN DEBUG ===");
-    }
+   // Deshabilitado por problemas de compatibilidad con otros mods. 
+//    // ========================================
+//    // SISTEMA DE DEBUG (MENOS IMPORTANTE)
+//    // ========================================
+//    
+//    public static void debugAudioSystem() {
+//        System.out.println("[RegionVisualizer] === DEBUG AUDIO SYSTEM ===");
+//
+//        // Verificar tipos de archivos soportados
+//        AudioFileFormat.Type[] types = AudioSystem.getAudioFileTypes();
+//        System.out.println("[RegionVisualizer] AudioSystem tipos soportados: " + types.length);
+//        for (AudioFileFormat.Type type : types) {
+//            System.out.println("[RegionVisualizer]   - " + type.toString() + " (extensión: " + type.getExtension() + ")");
+//        }
+//
+//        // Verificar proveedores de AudioFileReader
+//        System.out.println("[RegionVisualizer] === AUDIO FILE READERS ===");
+//        List<javax.sound.sampled.spi.AudioFileReader> readersList = new ArrayList<>();
+//        ServiceLoader<javax.sound.sampled.spi.AudioFileReader> loader =
+//                ServiceLoader.load(javax.sound.sampled.spi.AudioFileReader.class);
+//
+//        for (javax.sound.sampled.spi.AudioFileReader reader : loader) {
+//            readersList.add(reader);
+//            System.out.println("[RegionVisualizer]   - " + reader.getClass().getName());
+//        }
+//        System.out.println("[RegionVisualizer] AudioFileReaders encontrados: " + readersList.size());
+//
+//        // Verificar clases OGG específicas
+//        System.out.println("[RegionVisualizer] === VERIFICACIÓN DE CLASES OGG ===");
+//        String[] oggClasses = {
+//                "javazoom.spi.vorbis.sampled.file.VorbisAudioFileReader",
+//                "com.jcraft.jorbis.VorbisFile",
+//               "org.tritonus.share.sampled.file.AudioFileReader",
+//                "de.jarnbjo.vorbis.VorbisStream"
+//        };
+//
+//        for (String className : oggClasses) {
+//            try {
+//                Class.forName(className);
+//                System.out.println("[RegionVisualizer] ✅ Clase encontrada: " + className);
+//            } catch (ClassNotFoundException e) {
+//                System.out.println("[RegionVisualizer] ❌ Clase NO encontrada: " + className);
+//            }
+//        }
+//
+//        // Probar archivo OGG específico
+//        try {
+//            List<Path> oggFiles = Files.list(musicFolder)
+//                    .filter(path -> path.toString().toLowerCase().endsWith(".ogg"))
+//                    .limit(1)
+//                    .collect(Collectors.toList());
+//
+//            if (!oggFiles.isEmpty()) {
+//                Path testFile = oggFiles.get(0);
+//                System.out.println("[RegionVisualizer] Probando archivo: " + testFile.getFileName());
+//
+//                try (AudioInputStream stream = AudioSystem.getAudioInputStream(testFile.toFile())) {
+//                    System.out.println("[RegionVisualizer] ✅ Archivo OGG leído exitosamente");
+//                    System.out.println("[RegionVisualizer] Formato: " + stream.getFormat());
+////                    sendMessageSync("[RegionVisualizer] ✅ ¡OGG soportado y funcional!", ChatFormatting.GREEN);
+//                } catch (UnsupportedAudioFileException e) {
+//                    System.err.println("[RegionVisualizer] ❌ Archivo OGG no soportado: " + e.getMessage());
+////                    sendMessageSync("[RegionVisualizer] ❌ OGG no soportado: " + e.getMessage(), ChatFormatting.RED);
+//                }
+//            } else {
+//                System.out.println("[RegionVisualizer] ⚠️ No se encontraron archivos OGG para probar");
+////                sendMessageSync("⚠️ No hay archivos OGG para probar", ChatFormatting.YELLOW);
+//            }
+//        } catch (Exception e) {
+//            System.err.println("[RegionVisualizer] ❌ Error accediendo a archivos OGG: " + e.getMessage());
+//        }
+//
+//        System.out.println("[RegionVisualizer] === FIN DEBUG ===");
+//    }
 
 	//========================================
 	//MÉTODOS PÚBLICOS PARA LA CONFIGURACIÓN
