@@ -83,7 +83,7 @@ PD: El mod funciona tanto para cliente como servidor, por lo tanto: **Clientside
 
   – Control del comienzo de Fade añadido (45% por defecto).
 
-  – Debug intenso.
+  – Debug incluido en la consola.
 
   – Refresh de música añadido.
 
